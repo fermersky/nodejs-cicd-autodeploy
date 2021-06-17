@@ -16,17 +16,18 @@ jobs:
       matrix:
         node-version: [14.x]
 
+    environment:
+      PORT: ${{ secrets.PORT }}
+      MONGODB_URL: ${{ secrets.MONGODB_URL }}
+      REDIS_PORT: ${{ secrets.REDIS_PORT }}
+      REDIS_HOST: ${{ secrets.REDIS_HOST }}
+
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        env: 
-            PORT: ${{ secrets.PORT }}
-            MONGODB_URL: ${{ secrets.MONGODB_URL }}
-            REDIS_PORT: ${{ secrets.REDIS_PORT }}
-            REDIS_HOST: ${{ secrets.REDIS_HOST }}
-        run: docker-compose down
-        run: docker-compose up --build -d
-        run: docker image prune -af
+    - run: docker-compose down
+    - run: docker-compose up --build -d
+    - run: docker image prune -af
