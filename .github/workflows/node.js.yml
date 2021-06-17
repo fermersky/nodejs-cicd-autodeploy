@@ -17,6 +17,11 @@ jobs:
         node-version: [14.x]
 
     steps:
+    - env: 
+        PORT: ${{ secrets.PORT }}
+        MONGODB_URL: ${{ secrets.MONGODB_URL }}
+        REDIS_PORT: ${{ secrets.REDIS_PORT }}
+        REDIS_HOST: ${{ secrets.REDIS_HOST }}
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
