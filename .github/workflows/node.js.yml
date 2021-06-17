@@ -22,5 +22,5 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: docker-compose up --build -d
-    - run: docker image prune -af
+    # - run: docker-compose up --build -d
+    # - run: docker image prune -af
