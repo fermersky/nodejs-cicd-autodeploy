@@ -8,4 +8,4 @@ RUN npm ci && npm i -g typescript ts-node
 
 COPY . .
 
-CMD ["npm" "start"]
+CMD ["ts-node" "src/index.ts"]
