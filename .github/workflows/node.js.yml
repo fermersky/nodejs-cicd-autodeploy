@@ -30,6 +30,5 @@ jobs:
         MONGODB_URL: ${{ secrets.MONGODB_URL }}
         REDIS_PORT: ${{ secrets.REDIS_PORT }}
         REDIS_HOST: ${{ secrets.REDIS_HOST }}
-    - run: docker-compose down
     - run: docker-compose up --build -d
     - run: docker image prune -af
