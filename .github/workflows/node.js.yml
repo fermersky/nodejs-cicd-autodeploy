@@ -9,11 +9,6 @@ on:
 
 jobs:
   build:
-    env:
-      PORT: ${{ secrets.PORT }}
-      MONGODB_URL: ${{ secrets.MONGODB_URL }}
-      REDIS_PORT: ${{ secrets.REDIS_PORT }}
-      REDIS_HOST: ${{ secrets.REDIS_HOST }}
 
     runs-on: self-hosted
 
@@ -28,6 +23,13 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Define env
+      run: echo "${PORT}"
+      env:
+        PORT: ${{ secrets.PORT }}
+        MONGODB_URL: ${{ secrets.MONGODB_URL }}
+        REDIS_PORT: ${{ secrets.REDIS_PORT }}
+        REDIS_HOST: ${{ secrets.REDIS_HOST }}
     - run: docker-compose down
     - run: docker-compose up --build -d
     - run: docker image prune -af
