@@ -4,7 +4,11 @@ services:
     node: 
         build: .
         container_name: node-backend
-        # env_file: .env.docker
+        environment: 
+            - PORT: ${PORT}
+            - MONGODB_URL: ${MONGODB_URL}
+            - REDIS_PORT: ${REDIS_PORT}
+            - REDIS_HOST: ${REDIS_HOST}
         ports: 
             - "7777:7777"
         depends_on: 
