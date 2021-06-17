@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Deploy Server
         env: 
             PORT: ${{ secrets.PORT }}
             MONGODB_URL: ${{ secrets.MONGODB_URL }}
