@@ -24,6 +24,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Define env
+      run: echo "Defining env"
       env:
         PORT: ${{ secrets.PORT }}
         MONGODB_URL: ${{ secrets.MONGODB_URL }}
