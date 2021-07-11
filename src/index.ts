@@ -59,7 +59,7 @@ const seedData = async () => {
   });
 
   app.get('/', async (req, res) => {
-    res.end('Please try /cicd/sessions or /cicd/devices')
+    res.end('please try /cicd/sessions or /cicd/devices')
   });
 
   app.get('/sessions', async (req, res) => {
