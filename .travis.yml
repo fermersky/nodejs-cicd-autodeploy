@@ -1,0 +1,10 @@
+sudo: required
+
+services: 
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.test -t fermersky/test_image .
+
+script: 
+  - docker run fermersky/test_image
