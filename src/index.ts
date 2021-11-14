@@ -42,7 +42,7 @@ redis.flushall();
   });
 
   app.get('/', async (req, res) => {
-    res.end('Please try /cicd/sessions or /cicd/devices')
+    res.end('Please try /cicd/sessions OR /cicd/devices')
   });
 
   app.get('/sessions', async (req, res) => {
